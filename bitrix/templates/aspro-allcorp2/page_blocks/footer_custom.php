@@ -18,7 +18,7 @@ else
 								"TEMPLATE" => "include_area.php",
 							)
 						);?><br>
-						<a target="_blank" title="Сайт на 1С-Битрикс" href="https://34web.ru/sites-on-1c-bitrix/" style="color:#222">Сайт на 1С-Битрикс - <span style="color: #fe8300;">34</span><span style="color:#fff">web</span></a>
+						<a target="_blank" title="Сайт на 1С-Битрикс" href="https://34web.ru/sites-on-1c-bitrix/" style="color:#222">Сайт на 1С-Битрикс - <span style="color: #fe8300;">34</span><span style="color:#222">web</span></a>
 					</div>
 					<div class="print-block blocks"><?=CAllcorp2::ShowPrintLink();?></div>
 					<div id="bx-composite-banner" class="blocks"></div>
