@@ -69,6 +69,7 @@ function YandexBranches(arParams) {
 
 	this.viewPlace = function (element) {
 		let place = this.arParams.branchesList[element.dataset.cityid][element.dataset.branchkey];
+		console.dir(place);
 
 		_this.arParams.map.setCenter([place.LON, place.LAT], 16);
 
