@@ -1,0 +1,18 @@
+.banners-big .slides .item[data-color=light] .blackInWhite .title,
+.banners-big .slides .item[data-color=light]:hover .blackInWhite .title,
+.banners-big .slides .item[data-color=light] .blackInWhite .text-block,
+.banners-big .slides .item[data-color=light]:hover .blackInWhite .text-block
+{
+    text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+    color: #000;
+    /*background: #FFFFFF;*/
+}
+.banners-big .slides .item .whiteInBlack .title,
+.banners-big .slides .item:hover .whiteInBlack .title,
+.banners-big .slides .item .whiteInBlack .text-block,
+.banners-big .slides .item:hover .whiteInBlack .text-block
+{
+    text-shadow: 3px 5px 2px #474747;
+    color: #fff;
+    /*background: #FFFFFF;*/
+}

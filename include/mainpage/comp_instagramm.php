@@ -6,17 +6,16 @@ $APPLICATION->SetTitle("");
 	global $APPLICATION;
 	\Bitrix\Main\Loader::includeModule("aspro.allcorp2");
 	$bInstagrammIndex = (isset($_POST["SHOW_INSTAGRAM"]) && $_POST["SHOW_INSTAGRAM"] == 'Y');
-}?>
-<?global $bInstagrammIndex;?>
+}?><?global $bInstagrammIndex;?>
 <?if($bInstagrammIndex):?>
 	<?$APPLICATION->IncludeComponent(
-		"aspro:instargam.allcorp2",
-		"main",
-		Array(
-			"COMPOSITE_FRAME_MODE" => "A",
-			"COMPOSITE_FRAME_TYPE" => "AUTO",
-			"TITLE" => "Последние новости",
-			"TOKEN" => \Bitrix\Main\Config\Option::get("aspro.allcorp2", "API_TOKEN_INSTAGRAMM", "1056017790.9b6cbfe.4dfb9d965b5c4c599121872c23b4dfd0")
-		)
-	);?>
+	"aspro:instargam.allcorp2",
+	"new",
+	Array(
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO",
+		"TITLE" => "Последние новости",
+		"TOKEN" => \Bitrix\Main\Config\Option::get("aspro.allcorp2","API_TOKEN_INSTAGRAMM","1056017790.9b6cbfe.4dfb9d965b5c4c599121872c23b4dfd0")
+	)
+);?>
 <?endif;?>

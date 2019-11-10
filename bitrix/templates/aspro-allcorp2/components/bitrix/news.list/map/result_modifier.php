@@ -3,7 +3,10 @@
 if(!empty($arResult['ITEMS']) and is_array($arResult['ITEMS'])){
 	$arResult['geoItemsElements'] = $arResult['geoItemsSections'] = $geoItemsSections = [];
 	foreach ($arResult['ITEMS'] as $key => $item) {
+		$this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($item["IBLOCK_ID"], "ELEMENT_EDIT"));
+		$this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($item["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 		$arCoords = explode(',', $item['DISPLAY_PROPERTIES']['YANDEX_GEO']['VALUE']);
+		//dump($item['DISPLAY_PROPERTIES']['TYPE']);
 		$arResult['geoItemsElements'][$item['IBLOCK_SECTION_ID']][] =
 			[
 				'ID' => $item['ID'],
@@ -13,6 +16,8 @@ if(!empty($arResult['ITEMS']) and is_array($arResult['ITEMS'])){
 				'DETAIL_PAGE_URL' => $item['DETAIL_PAGE_URL'],
 				'LON' => $arCoords[0],
 				'LAT' => $arCoords[1],
+				'TYPE' => $item['DISPLAY_PROPERTIES']['TYPE']['VALUE_XML_ID'],
+				'editArea' => $this->GetEditAreaId($item['ID']),
 			];
 		$geoItemsSections[$item['IBLOCK_SECTION_ID']] = $item['IBLOCK_SECTION_ID'];
 	}

@@ -41,7 +41,7 @@ function YandexGeoItems(arParams) {
 			) {
 				let balloonBody = '', balloonContentHeader = '';
 				if (typeof currentElements[i].NAME != 'undefined' && currentElements[i].NAME !== '') {
-					balloonContentHeader += '<div class="geoItems__balloonHeader">' + currentElements[i].NAME + '</div>';
+					balloonContentHeader += '<div class="geoItems__balloonHeader" id="' + currentElements[i].editArea + '">' + currentElements[i].NAME + '</div>';
 				}
 				if (typeof currentElements[i].PREVIEW_TEXT != 'undefined' && currentElements[i].PREVIEW_TEXT !== '') {
 					balloonBody += '<div class="geoItems__previewText">' + currentElements[i].PREVIEW_TEXT + '</div>';
@@ -51,7 +51,7 @@ function YandexGeoItems(arParams) {
 				}
 
 				let sch = i + 1;
-				let placeMark = new ymaps.Placemark([currentElements[i].LON, currentElements[i].LAT], {
+				let myPlacemark = new ymaps.Placemark([currentElements[i].LON, currentElements[i].LAT], {
 					iconContent: sch,
 					idBalloon: currentElements[i].ID,
 					balloonContentHeader: balloonContentHeader,
@@ -60,7 +60,21 @@ function YandexGeoItems(arParams) {
 					preset: 'twirl#nightStretchyIcon',
 				});
 
-				const myPlacemark = new ymaps.Placemark([currentElements[i].LON, currentElements[i].LAT], {
+				console.dir(currentElements[i]);
+
+				let iconPlaceMark;
+				switch (currentElements[i].TYPE) {
+					case 'obelisk':
+						iconPlaceMark = '/upload/medialibrary/94d/obelisk.png';
+						break;
+					case 'museum':
+						iconPlaceMark = '/upload/medialibrary/63f/museum.png';
+						break;
+					default:
+						iconPlaceMark = '/upload/medialibrary/7d9/memorial.png';
+				}
+
+				const placeMark = new ymaps.Placemark([currentElements[i].LON, currentElements[i].LAT], {
 					iconContent: sch,
 					idBalloon: currentElements[i].ID,
 					balloonContentHeader: balloonContentHeader,
@@ -70,15 +84,15 @@ function YandexGeoItems(arParams) {
 					// Необходимо указать данный тип макета.
 					iconLayout: 'default#image',
 					// Своё изображение иконки метки.
-					iconImageHref: '/upload/medialibrary/c40/obelisk.png',
+					iconImageHref: iconPlaceMark,
 					// Размеры метки.
-					iconImageSize: [60, 60],
+					iconImageSize: [30, 40],
 					// Смещение левого верхнего угла иконки относительно
 					// её "ножки" (точки привязки).
-					iconImageOffset: [-30, -60]
+					iconImageOffset: [-15, -40]
 				});
 
-				_this.arParams.Collection.add(myPlacemark);
+				_this.arParams.Collection.add(placeMark);
 
 				geoItemsElements += '<div class="geoItems__element" data-branchkey="'+i+'" data-sectionID="'+sectionID+'">';
 				geoItemsElements += sch + '. ';

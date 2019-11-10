@@ -25,6 +25,21 @@ $arTemplateParameters = array(
 		"DEFAULT" =>"N",
 		"REFRESH"=> "Y",
 	),
+	"FIRST_COLOUR" => Array(
+		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_FIRST_COLOUR"),
+		"TYPE" => "STRING",
+		"DEFAULT" => 'blue',
+	),
+	"SECOND_COLOUR" => Array(
+		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_SECOND_COLOUR"),
+		"TYPE" => "STRING",
+		"DEFAULT" => 'white',
+	),
+	"THIRD_COLOUR" => Array(
+		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_THIRD_COLOUR"),
+		"TYPE" => "STRING",
+		"DEFAULT" => 'orange',
+	),
 );
 
 if ($arCurrentValues["USE_SHARE"] == "Y")

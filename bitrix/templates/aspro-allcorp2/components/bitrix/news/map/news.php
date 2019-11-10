@@ -13,14 +13,6 @@
 $this->setFrameMode(true);
 ?>
 
-<?if($arParams["USE_RSS"]=="Y"):?>
-	<?
-	if(method_exists($APPLICATION, 'addheadstring'))
-		$APPLICATION->AddHeadString('<link rel="alternate" type="application/rss+xml" title="'.$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["rss"].'" href="'.$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["rss"].'" />');
-	?>
-	<a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["rss"]?>" title="rss" target="_self"><img alt="RSS" src="<?=$templateFolder?>/images/gif-light/feed-icon-16x16.gif" border="0" align="right" /></a>
-<?endif?>
-
 <?if($arParams["USE_SEARCH"]=="Y"):?>
 <?=GetMessage("SEARCH_LABEL")?><?$APPLICATION->IncludeComponent(
 	"bitrix:search.form",
@@ -102,6 +94,9 @@ $this->setFrameMode(true);
 		"FILTER_NAME" => $arParams["FILTER_NAME"],
 		"HIDE_LINK_WHEN_NO_DETAIL" => $arParams["HIDE_LINK_WHEN_NO_DETAIL"],
 		"CHECK_DATES" => $arParams["CHECK_DATES"],
+		"FIRST_COLOUR" => $arParams["FIRST_COLOUR"],
+		"SECOND_COLOUR" => $arParams["SECOND_COLOUR"],
+		"THIRD_COLOUR" => $arParams["THIRD_COLOUR"],
 	),
 	$component
 );?>
