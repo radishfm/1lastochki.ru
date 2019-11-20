@@ -93,8 +93,9 @@ $APPLICATION->SetTitle("test");?><?$APPLICATION->IncludeComponent(
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
-			"detail" => "#ELEMENT_ID#/",
+			"detail" => "#ELEMENT_CODE#/",
 		)
 	),
 	false
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -100,3 +100,32 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
+<?
+if(\Bitrix\Main\Loader::includeModule('aspro.allcorp2'))
+	$arTheme = CAllcorp2::GetFrontParametrsValues(SITE_ID);
+$APPLICATION->IncludeComponent(
+	"aspro:form.allcorp2",
+	"inline",
+	Array(
+		"IBLOCK_TYPE" => "aspro_allcorp2_form",
+		"IBLOCK_ID" => 42,
+		"AJAX_MODE" => "Y",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "N",
+		"AJAX_OPTION_HISTORY" => "N",
+		"SHOW_LICENCE" => $arTheme["SHOW_LICENCE"],
+		"LICENCE_TEXT" => $arTheme["LICENCE_TEXT"],
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "100000",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		//"IS_PLACEHOLDER" => "Y",
+		"SUCCESS_MESSAGE" => 'Спасибо за обращение. Рассмотрим его и обязательно ответим!',
+		"SEND_BUTTON_NAME" => "Отправить",
+		"SEND_BUTTON_CLASS" => "btn btn-default",
+		"DISPLAY_CLOSE_BUTTON" => "Y",
+		"POPUP" => "Y",
+		"CLOSE_BUTTON_NAME" => "Закрыть",
+		"CLOSE_BUTTON_CLASS" => "jqmClose btn btn-default bottom-close"
+	)
+);
+?>
