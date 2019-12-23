@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    #Options +FollowSymLinks
+    RewriteEngine On
+
+    RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(php|html|htm)\ HTTP/ 
+    RewriteRule ^(.*)index\.(php|html|htm)$ http://1lastochki.ru/$1 [R=301,L]
+</IfModule>
